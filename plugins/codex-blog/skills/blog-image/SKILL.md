@@ -9,7 +9,7 @@ license: MIT
 metadata:
   author: AgriciDaniel
   codex-port: BruceL017
-  version: "2.1.1"
+  version: "2.1.2"
 ---
 
 # Blog Image

@@ -1,15 +1,18 @@
 ---
 name: blog-write
 description: >
-  Write a complete, publication-ready SEO article from a topic, keywords, brief,
-  source materials, or cluster context. Use directly as `$blog-write` or through
-  `$blog write`; it works independently and also accepts optional Codex SEO and
-  extract-seo-materials outputs. Images are off until explicitly requested.
+  Write complete, publication-ready SEO content from a topic, keywords, brief,
+  source materials, or cluster context. Use for SEO content creation, SEO
+  content writing, keyword-driven articles, SEO 内容创作, SEO 文章写作, 关键词文章生成,
+  or turning research materials into a search-optimized article. Invoke directly
+  as `$blog-write` or through `$blog write`; optional Codex SEO and
+  extract-seo-materials outputs are accepted. Images remain off until explicitly
+  requested.
 license: MIT
 metadata:
   author: AgriciDaniel
   codex-port: BruceL017
-  version: "2.1.1"
+  version: "2.1.2"
 ---
 
 # Blog Write

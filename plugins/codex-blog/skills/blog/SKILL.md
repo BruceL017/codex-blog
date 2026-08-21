@@ -1,15 +1,18 @@
 ---
 name: blog
 description: >
-  Route and run a full-lifecycle Codex blog workflow for SEO articles, briefs,
-  research, rewriting, analysis, clusters, multilingual content, structured
-  data, and optional media. Use for `$blog` commands or complete blog-content
-  production; the complete SEO Markdown article is always the primary output.
+  Route and run a full-lifecycle Codex workflow for SEO content creation, SEO
+  article writing, briefs, research, rewriting, analysis, clusters,
+  multilingual content, structured data, and optional media. Use for `$blog`
+  commands, complete blog-content production, or requests phrased as SEO 内容创作,
+  SEO 文章写作, 关键词文章生成, or turning keywords and source materials into a
+  search-optimized article. The complete SEO Markdown article is always the
+  primary output.
 license: MIT
 metadata:
   author: AgriciDaniel
   codex-port: BruceL017
-  version: "2.1.1"
+  version: "2.1.2"
 ---
 
 # Codex Blog

@@ -51,7 +51,7 @@ Requirements: Codex CLI with plugin support and Python 3.10 or newer.
 Marketplace-only installation exposes the 33 Skills:
 
 ```bash
-codex plugin marketplace add BruceL017/codex-blog --ref v2.1.1
+codex plugin marketplace add BruceL017/codex-blog --ref v2.1.2
 codex plugin add codex-blog@brucel017-codex-blog
 ```
 
@@ -59,7 +59,7 @@ The full installer also copies the six TOML Agents to `${CODEX_HOME}/agents`
 and creates the `codex-blog` launcher in `${CODEX_HOME}/bin`:
 
 ```bash
-git clone --branch v2.1.1 https://github.com/BruceL017/codex-blog.git
+git clone --branch v2.1.2 https://github.com/BruceL017/codex-blog.git
 cd codex-blog
 ./install.sh
 ```
@@ -67,7 +67,7 @@ cd codex-blog
 Windows PowerShell:
 
 ```powershell
-git clone --branch v2.1.1 https://github.com/BruceL017/codex-blog.git
+git clone --branch v2.1.2 https://github.com/BruceL017/codex-blog.git
 Set-Location codex-blog
 .\install.ps1
 ```

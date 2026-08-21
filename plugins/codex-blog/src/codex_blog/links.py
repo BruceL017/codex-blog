@@ -182,7 +182,7 @@ def check_link(url: str, *, timeout: float = 4.0) -> LinkResult:
         current_parsed, current_addresses = _validated_target(url)
     except ValueError as exc:
         return LinkResult(url, False, error=str(exc))
-    headers = {"User-Agent": "codex-blog/2.1.1 link-check", "Accept": "text/html,*/*;q=0.1"}
+    headers = {"User-Agent": "codex-blog/2.1.2 link-check", "Accept": "text/html,*/*;q=0.1"}
     for method in ("HEAD", "GET"):
         request_headers = dict(headers)
         if method == "GET":

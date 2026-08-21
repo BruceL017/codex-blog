@@ -1,6 +1,6 @@
 interface:
-  display_name: "Blog Write"
-  short_description: "Write a complete, sourced SEO article"
-  default_prompt: "Use $blog-write to turn my keywords, brief, and source materials into a complete SEO article."
+  display_name: "SEO Content Writer"
+  short_description: "Turn keywords and sources into complete SEO content"
+  default_prompt: "Use $blog-write for SEO content writing from my keywords, brief, and source materials."
 policy:
   allow_implicit_invocation: true

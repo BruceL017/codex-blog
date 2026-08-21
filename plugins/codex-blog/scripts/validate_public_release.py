@@ -9,7 +9,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "2.1.1"
+VERSION = "2.1.2"
 PLUGIN_NAME = "codex-blog"
 MARKETPLACE_NAME = "brucel017-codex-blog"
 REPOSITORY = "https://github.com/BruceL017/codex-blog"

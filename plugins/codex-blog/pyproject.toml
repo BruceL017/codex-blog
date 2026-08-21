@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "codex-blog"
-version = "2.1.1"
+version = "2.1.2"
 description = "Article-first SEO content production runtime for OpenAI Codex"
 readme = "README.md"
 requires-python = ">=3.10"

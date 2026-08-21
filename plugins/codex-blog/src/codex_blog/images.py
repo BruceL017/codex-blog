@@ -91,7 +91,7 @@ def _download_same_origin(url: str, base_url: str, timeout: float) -> bytes:
     data, _headers = request_bytes(
         url,
         method="GET",
-        headers={"User-Agent": "codex-blog/2.1.1"},
+        headers={"User-Agent": "codex-blog/2.1.2"},
         timeout=timeout,
         max_bytes=MAX_IMAGE_BYTES,
     )

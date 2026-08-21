@@ -2,7 +2,7 @@ codex-blog
 Copyright (c) 2025-2026 AgriciDaniel
 Copyright (c) 2026 BruceL017
 
-Codex Blog 2.1.1 is a Codex adaptation of the MIT-licensed public distribution
+Codex Blog 2.1.2 is a Codex adaptation of the MIT-licensed public distribution
 of claude-blog 2.1.1. The upstream copyright and license notice are preserved.
 The separately licensed upstream `brain/` subtree is intentionally excluded;
 Codex Blog's Brain implementation was designed from public behavior and new

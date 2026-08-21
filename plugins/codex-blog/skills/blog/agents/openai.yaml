@@ -1,6 +1,6 @@
 interface:
-  display_name: "Codex Blog"
-  short_description: "Run the complete content-first blog workflow"
-  default_prompt: "Use $blog write to create a complete SEO article from my topic and materials."
+  display_name: "Codex Blog: SEO Content"
+  short_description: "Create complete SEO content from keywords and sources"
+  default_prompt: "Use $blog write for SEO content creation from my keywords, brief, and source materials."
 policy:
   allow_implicit_invocation: true

@@ -1,7 +1,7 @@
 {
   "name": "codex-blog",
-  "version": "2.1.1",
-  "description": "Article-first SEO content production for Codex with research, briefs, drafting, review, schema, rendering, localization, optional SEO adapters, and deferred image generation.",
+  "version": "2.1.2",
+  "description": "Article-first SEO content creation and SEO article writing for Codex with research, briefs, drafting, review, schema, rendering, localization, optional SEO adapters, and deferred images.",
   "author": {
     "name": "BruceL017",
     "email": "253661133+BruceL017@users.noreply.github.com",
@@ -14,7 +14,11 @@
     "blog",
     "codex",
     "content-workflow",
+    "content-creation",
+    "content-writing",
     "seo",
+    "seo-content-creation",
+    "seo-content-writing",
     "geo",
     "schema",
     "localization"
@@ -22,12 +26,13 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Codex Blog",
-    "shortDescription": "Article-first SEO content production",
-    "longDescription": "Create complete SEO articles first, then attempt non-blocking schema, rendering, quality, localization, and optional image stages. External SEO Skills and image providers remain optional.",
+    "shortDescription": "Article-first SEO content creation and writing",
+    "longDescription": "Create complete SEO content from keywords, briefs, and source materials first, then attempt non-blocking schema, rendering, quality, localization, and optional image stages. External SEO Skills and image providers remain optional.",
     "developerName": "BruceL017",
     "category": "Productivity",
     "capabilities": [
       "SEO article writing",
+      "SEO content creation",
       "Content research",
       "Editorial review",
       "Schema and rendering",

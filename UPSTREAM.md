@@ -1,6 +1,6 @@
 # Upstream lineage and clean-room boundary
 
-Codex Blog 2.1.1 ports the public MIT distribution of
+Codex Blog 2.1.2 ports the public MIT distribution of
 [AgriciDaniel/claude-blog 2.1.1](https://github.com/AgriciDaniel/claude-blog/tree/v2.1.1)
 to OpenAI Codex. It is an independent community project and is not an official
 release from OpenAI or AgriciDaniel.

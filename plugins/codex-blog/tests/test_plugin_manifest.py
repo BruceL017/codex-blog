@@ -13,10 +13,21 @@ PROJECT = PLUGIN.parents[1]
 def test_plugin_manifest_is_codex_native_and_registry_safe() -> None:
     manifest = json.loads((PLUGIN / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
     assert manifest["name"] == "codex-blog"
-    assert manifest["version"] == "2.1.1"
+    assert manifest["version"] == "2.1.2"
     assert manifest["skills"] == "./skills/"
     assert 0 < len(manifest["description"]) <= 500
+    assert {"seo-content-creation", "seo-content-writing"} <= set(manifest["keywords"])
     assert not ({"mcpServers", "apps", "hooks"} & manifest.keys())
+
+
+def test_seo_content_creation_is_implicitly_discoverable() -> None:
+    for skill_name in ("blog", "blog-write"):
+        skill_root = PLUGIN / "skills" / skill_name
+        skill = (skill_root / "SKILL.md").read_text(encoding="utf-8")
+        interface = (skill_root / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        assert "SEO content creation" in skill
+        assert "SEO 内容创作" in skill
+        assert "allow_implicit_invocation: true" in interface
 
 
 def test_marketplace_identity_and_source_are_stable() -> None:

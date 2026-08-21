@@ -2,6 +2,14 @@
 
 All notable changes are documented here. Versions follow Semantic Versioning.
 
+## [2.1.2] - 2026-08-21
+
+### Changed
+
+- Expanded `$blog` and `$blog-write` discovery metadata for English and Chinese
+  SEO content creation, SEO article writing, and keyword-driven article requests.
+- Aligned Marketplace keywords and Skill UI prompts with the writing workflow.
+
 ## [2.1.1] - 2026-08-21
 
 ### Added

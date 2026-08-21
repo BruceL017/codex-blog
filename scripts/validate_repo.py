@@ -15,7 +15,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "codex-blog"
-VERSION = "2.1.1"
+VERSION = "2.1.2"
 MARKETPLACE = "brucel017-codex-blog"
 SKILLS = {
     "blog",

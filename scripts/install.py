@@ -237,7 +237,7 @@ def _validate_payload(plugin_root: Path) -> None:
     if not manifest_path.is_file():
         raise RuntimeError(f"plugin manifest is missing: {manifest_path}")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("name") != PLUGIN_NAME or manifest.get("version") != "2.1.1":
+    if manifest.get("name") != PLUGIN_NAME or manifest.get("version") != "2.1.2":
         raise RuntimeError("plugin identity/version is invalid")
     agents = {path.stem for path in (plugin_root / "agents").glob("*.toml")}
     if agents != AGENT_NAMES:
@@ -579,7 +579,7 @@ def install(args: argparse.Namespace) -> int:
                 f"{exc}; compensation incomplete: {'; '.join(rollback_failures)}"
             ) from exc
         raise
-    print("Installed Codex Blog 2.1.1 with 33 Skills and 6 Agents.")
+    print("Installed Codex Blog 2.1.2 with 33 Skills and 6 Agents.")
     print(f"Add {_codex_home() / 'bin'} to PATH to use the codex-blog command.")
     print("No image provider, MCP, API key, or external SEO Skill was configured.")
     return 0

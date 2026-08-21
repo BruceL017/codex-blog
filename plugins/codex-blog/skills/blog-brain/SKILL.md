@@ -9,7 +9,7 @@ license: MIT
 metadata:
   author: BruceL017
   implementation: clean-room
-  version: "2.1.1"
+  version: "2.1.2"
 ---
 
 # Blog Brain

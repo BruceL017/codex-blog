@@ -18,7 +18,7 @@ providers are not probed or called until the user opts in after non-image work.
 Install from the repository Marketplace:
 
 ```bash
-codex plugin marketplace add BruceL017/codex-blog --ref v2.1.1
+codex plugin marketplace add BruceL017/codex-blog --ref v2.1.2
 codex plugin add codex-blog@brucel017-codex-blog
 ```
 

@@ -36,7 +36,7 @@ def test_repository_validator_passes_current_tree() -> None:
     )
     payload = json.loads(result.stdout)
     assert result.returncode == 0, payload["errors"]
-    assert payload == {"ok": True, "version": "2.1.1", "skills": 33, "agents": 6, "errors": []}
+    assert payload == {"ok": True, "version": "2.1.2", "skills": 33, "agents": 6, "errors": []}
 
 
 def test_no_restricted_upstream_brain_tree_was_copied() -> None:

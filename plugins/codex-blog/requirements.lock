@@ -1,4 +1,4 @@
-# Codex Blog 2.1.1 deterministic runtime lock.
+# Codex Blog 2.1.2 deterministic runtime lock.
 #
 # The core CLI intentionally has no third-party runtime dependencies, so there
 # are no distributions to pin here. Optional analysis, rendering, and
