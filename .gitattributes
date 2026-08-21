@@ -1,0 +1,15 @@
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.gz binary
+LICENSES/CC-BY-4.0.txt -whitespace
+plugins/codex-blog/LICENSES/CC-BY-4.0.txt -whitespace

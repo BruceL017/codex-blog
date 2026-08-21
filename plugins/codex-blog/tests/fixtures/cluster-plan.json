@@ -1,0 +1,14 @@
+{
+  "pillar": {
+    "id": "pillar",
+    "title": "Article First SEO",
+    "keyword": "article first SEO",
+    "secondary_keywords": ["SEO content workflow", "graceful degradation"],
+    "template": "pillar-page",
+    "wordCount": 2400,
+    "outgoing_links": [
+      {"url": "/seo-content-workflow", "anchor": "SEO content workflow", "type": "mandatory"}
+    ]
+  },
+  "clusters": []
+}

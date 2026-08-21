@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install release tools
+        run: |
+          python -m pip install -r plugins/codex-blog/requirements-dev.txt
+          python -m pip install -e plugins/codex-blog
+      - name: Verify tag and repository
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python scripts/check_release.py --tag "$RELEASE_TAG"
+          python scripts/validate_repo.py
+          python plugins/codex-blog/scripts/generate_agents.py --check
+          python -m pytest -q tests plugins/codex-blog/tests
+      - name: Build Python distributions
+        run: python -m build plugins/codex-blog
+      - name: Smoke standalone wheel
+        run: python scripts/smoke_wheel.py plugins/codex-blog/dist
+      - name: Build repository archives
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          mkdir -p dist
+          version="${RELEASE_TAG#v}"
+          git archive --format=tar --prefix="codex-blog-${version}/" HEAD | gzip -9 > "dist/codex-blog-${version}.tar.gz"
+          git archive --format=zip --prefix="codex-blog-${version}/" -o "dist/codex-blog-${version}.zip" HEAD
+          cp plugins/codex-blog/dist/* dist/
+          cd dist
+          sha256sum * > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: codex-blog-${{ github.ref_name }}
+          path: dist/*
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: dist/*

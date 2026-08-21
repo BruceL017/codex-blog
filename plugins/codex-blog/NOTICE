@@ -1,0 +1,88 @@
+Codex Blog 2.1.1
+Copyright (c) 2025-2026 AgriciDaniel
+Copyright (c) 2026 BruceL017
+
+This is the distributable plugin from BruceL017/codex-blog. Its original code
+and the adapted public surface of claude-blog 2.1.1 are distributed under the
+MIT License in this package. The separately licensed upstream `brain/` subtree
+is excluded; this package's Brain is an independently implemented, clean-room
+project knowledge store.
+
+Community-origin integrations retained through the claude-blog port:
+
+- semantic-cluster-engine, by Lutfiya Miller. Historical source:
+  https://github.com/Drfiya/semantic-cluster-engine (unavailable when audited
+  on 2026-08-21). A public copy preserves the root commit authored and
+  committed by Lutfiya Miller, `86ceb6ecf60b0b4f16d67dfa52b30a69ad57f14d`,
+  and its MIT license:
+  https://github.com/thenguyenvn90/semantic-cluster-engine/tree/86ceb6ecf60b0b4f16d67dfa52b30a69ad57f14d
+  The exact copyright and permission notice is in
+  LICENSES/semantic-cluster-engine-MIT.txt. This package receives the cluster
+  design through claude-blog 2.1.1 and changes runtime routing, batch delivery,
+  provider handling, and manifests for Codex.
+
+- claude-blog-multilingual, by Chris Mueller. Current source:
+  https://github.com/Chriss54/claude-blog-multilingual (formerly
+  https://github.com/Chriss54/multilingual-int). That repository declares no
+  license as of 2026-08-21. No file from it is redistributed here. This package
+  ports only AgriciDaniel's security-reviewed, clean-room integration already
+  published in the MIT-licensed claude-blog 2.1.1 distribution, then changes
+  routing, output paths, image deferral, and Codex SEO interoperability.
+
+Retained third-party methodology and prompt attribution follows.
+
+================================================================================
+
+impeccable 3.1.1
+Copyright (c) 2024-2026 Paul Bakaus
+Source: https://github.com/pbakaus/impeccable
+License: Apache License 2.0
+
+Codex Blog adapts prose-review methodology for AI-pattern detection, ordinal
+editorial heuristics, cognitive-load assessment, and durable brand-context
+loading. The adaptations are located in skills/blog/references/,
+scripts/cognitive_load.py, and skills/blog-brand/. No impeccable code is
+represented as original Codex Blog work.
+
+================================================================================
+
+last30days-skill 3.2.1
+Copyright (c) 2024-2026 Matt Van Horn
+Source: https://github.com/mvanhorn/last30days-skill
+License: MIT
+
+Codex Blog adapts its research-quality rubric, synthesis rules, keyword-trap
+classification, entity decomposition, and API-free discourse research method.
+The adaptations are located in skills/blog/references/research-quality.md,
+skills/blog/references/synthesis-contract.md, skills/blog-discourse/,
+scripts/discourse_research.py, and agents-src/blog-researcher.md, which
+scripts/generate_agents.py deterministically generates as
+agents/blog-researcher.toml. The upstream service and API implementation is not
+redistributed.
+
+================================================================================
+
+FLOW framework 1.0.0
+Copyright (c) 2026 Daniel Agrici
+Source: https://github.com/AgriciDaniel/flow
+License: Creative Commons Attribution 4.0 (CC BY 4.0) for prompt content;
+         MIT for Skill code
+License URI: https://creativecommons.org/licenses/by/4.0/
+
+FLOW prompt content is distributed in skills/blog-flow/references/. Codex Blog
+changed the material for this distribution by selecting blog-applicable
+prompts, adding sync/attribution headers and index metadata, and adapting its
+application guidance to Codex Blog. Those files retain an attribution header
+naming Daniel Agrici, the FLOW source, and CC BY 4.0. The MIT license for the
+package does not replace the CC BY 4.0 license on those named prompt files. The
+complete legal code is in LICENSES/CC-BY-4.0.txt.
+
+================================================================================
+
+Optional OpenAI-compatible endpoints, Gemini-compatible endpoints, MCP
+servers, and media providers are external services. Their software, models,
+and media are not included in this package.
+
+The complete Apache License 2.0 text is in LICENSES/Apache-2.0.txt. The retained
+semantic-cluster-engine MIT notice is in
+LICENSES/semantic-cluster-engine-MIT.txt.

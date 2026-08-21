@@ -1,0 +1,2 @@
+# Codex Blog's deterministic core uses only the Python standard library.
+# Optional dependencies are declared in pyproject.toml extras.

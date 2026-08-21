@@ -1,0 +1,45 @@
+{
+  "name": "codex-blog",
+  "version": "2.1.1",
+  "description": "Article-first SEO content production for Codex with research, briefs, drafting, review, schema, rendering, localization, optional SEO adapters, and deferred image generation.",
+  "author": {
+    "name": "BruceL017",
+    "email": "253661133+BruceL017@users.noreply.github.com",
+    "url": "https://github.com/BruceL017"
+  },
+  "homepage": "https://github.com/BruceL017/codex-blog",
+  "repository": "https://github.com/BruceL017/codex-blog",
+  "license": "MIT",
+  "keywords": [
+    "blog",
+    "codex",
+    "content-workflow",
+    "seo",
+    "geo",
+    "schema",
+    "localization"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Blog",
+    "shortDescription": "Article-first SEO content production",
+    "longDescription": "Create complete SEO articles first, then attempt non-blocking schema, rendering, quality, localization, and optional image stages. External SEO Skills and image providers remain optional.",
+    "developerName": "BruceL017",
+    "category": "Productivity",
+    "capabilities": [
+      "SEO article writing",
+      "Content research",
+      "Editorial review",
+      "Schema and rendering",
+      "Deferred image generation"
+    ],
+    "websiteURL": "https://github.com/BruceL017/codex-blog",
+    "privacyPolicyURL": "https://github.com/BruceL017/codex-blog/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/BruceL017/codex-blog/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Write a complete SEO article from this keyword and source material.",
+      "Turn this SEO brief into a publication-ready article without images.",
+      "Review and improve this article, preserving every supported claim."
+    ]
+  }
+}

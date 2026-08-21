@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BruceL017/codex-blog/schemas/run-manifest.schema.json",
+  "title": "Codex Blog Run Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "status",
+    "topic",
+    "slug",
+    "language",
+    "template",
+    "output_dir",
+    "image_mode",
+    "image_status",
+    "image_decision",
+    "image_assets",
+    "article_digest",
+    "request_digest",
+    "provenance",
+    "conflicts",
+    "article",
+    "request",
+    "stages",
+    "warnings",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "status": {"enum": ["awaiting_article", "enhancing", "complete", "complete_with_warnings", "blocked"]},
+    "topic": {"type": "string"},
+    "slug": {"type": "string"},
+    "language": {"type": "string"},
+    "template": {"type": "string"},
+    "output_dir": {"type": "string"},
+    "image_mode": {"enum": ["deferred", "hero", "full"]},
+    "image_status": {"enum": ["not_requested", "pending", "planned", "complete", "degraded"]},
+    "image_decision": {"enum": ["not_asked", "asked", "declined", "hero", "full"]},
+    "image_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "role", "path", "provider", "model", "prompt_sha256", "width", "height", "alt"],
+        "properties": {
+          "id": {"type": "string"},
+          "role": {"enum": ["hero", "inline"]},
+          "path": {"type": "string"},
+          "provider": {"type": "string"},
+          "model": {"type": "string"},
+          "prompt_sha256": {"type": "string", "pattern": "^(|[0-9a-f]{64})$"},
+          "width": {"type": ["integer", "null"], "minimum": 1},
+          "height": {"type": ["integer", "null"], "minimum": 1},
+          "alt": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "article_digest": {"type": "string", "pattern": "^(|[0-9a-f]{64})$"},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provenance": {"type": "array", "items": {"type": "object"}},
+    "conflicts": {"type": "array", "items": {"type": "string"}},
+    "article": {"type": "string"},
+    "request": {"type": "string"},
+    "stages": {
+      "type": "object",
+      "properties": {
+        "core_article": {"$ref": "#/$defs/coreStage"},
+        "schema": {"$ref": "#/$defs/downstreamStage"},
+        "html": {"$ref": "#/$defs/downstreamStage"},
+        "pdf": {"$ref": "#/$defs/downstreamStage"},
+        "seo_geo": {"$ref": "#/$defs/downstreamStage"},
+        "facts_links": {"$ref": "#/$defs/downstreamStage"},
+        "platform": {"$ref": "#/$defs/downstreamStage"},
+        "report": {"$ref": "#/$defs/downstreamStage"},
+        "images": {"$ref": "#/$defs/downstreamStage"}
+      },
+      "additionalProperties": {"$ref": "#/$defs/downstreamStage"}
+    },
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "coreStage": {
+      "type": "object",
+      "required": ["name", "status", "attempts", "artifacts", "warning", "error"],
+      "properties": {
+        "name": {"const": "core_article"},
+        "status": {"enum": ["pending", "complete", "degraded", "skipped", "blocked"]},
+        "attempts": {"type": "integer", "minimum": 0, "maximum": 3},
+        "artifacts": {"type": "array", "items": {"type": "string"}},
+        "warning": {"type": "string"},
+        "error": {"type": "string"}
+      }
+    },
+    "downstreamStage": {
+        "type": "object",
+        "required": ["name", "status", "attempts", "artifacts", "warning", "error"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {"enum": ["pending", "complete", "degraded", "skipped", "blocked"]},
+          "attempts": {"type": "integer", "minimum": 0, "maximum": 2},
+          "artifacts": {"type": "array", "items": {"type": "string"}},
+          "warning": {"type": "string"},
+          "error": {"type": "string"}
+        }
+      }
+  }
+}

@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a focused improvement to the article-first pipeline.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What user outcome is currently hard or impossible?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed behavior
+      description: Explain the minimum interface and expected output.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Product constraints
+      options:
+        - label: The complete Markdown article remains the hard deliverable.
+          required: true
+        - label: Images remain opt-in and deferred.
+          required: true
+        - label: External Skills and providers remain optional.
+          required: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Blog Brain"
+  short_description: "Curate reusable, sourced blog knowledge"
+  default_prompt: "Use $blog-brain to retrieve or curate reusable blog knowledge with provenance."
+policy:
+  allow_implicit_invocation: true

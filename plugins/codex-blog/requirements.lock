@@ -1,0 +1,6 @@
+# Codex Blog 2.1.1 deterministic runtime lock.
+#
+# The core CLI intentionally has no third-party runtime dependencies, so there
+# are no distributions to pin here. Optional analysis, rendering, and
+# development dependencies live in pyproject.toml and the split requirements
+# files; CI tests those groups independently.

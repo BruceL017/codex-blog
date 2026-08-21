@@ -1,0 +1,14 @@
+include setup.py
+include README.md CHANGELOG.md CITATION.cff LICENSE NOTICE THIRD_PARTY.md UPSTREAM.md
+include pyproject.toml requirements.lock
+graft .codex-plugin
+graft agents
+graft agents-src
+graft assets
+graft branding
+graft data
+graft LICENSES
+graft schemas
+graft scripts
+graft skills
+global-exclude __pycache__ *.py[cod] .DS_Store

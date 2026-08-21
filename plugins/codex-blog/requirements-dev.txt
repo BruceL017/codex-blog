@@ -1,0 +1,7 @@
+build>=1.2,<2
+Pillow>=11.3,<13
+pytest>=8,<10
+PyYAML>=6,<7
+requests>=2.32,<3
+ruff>=0.12,<1
+tomli>=2,<3; python_version < "3.11"

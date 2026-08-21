@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BruceL017/codex-blog/schemas/seo-content-packet.schema.json",
+  "title": "SEOContentPacket",
+  "type": "object",
+  "required": ["schema_version"],
+  "anyOf": [
+    {"required": ["topic"]},
+    {"required": ["primary_keyword"]},
+    {"required": ["materials"]}
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "topic": {"type": "string"},
+    "primary_keyword": {"type": "string"},
+    "secondary_keywords": {"type": "array", "items": {"type": "string"}},
+    "search_intent": {"type": "string"},
+    "audience": {"type": "string"},
+    "language": {"type": "string"},
+    "template": {"type": "string"},
+    "word_count": {"type": ["integer", "null"]},
+    "outline": {"type": "array", "items": {"type": "string"}},
+    "content_gaps": {"type": "array", "items": {"type": "string"}},
+    "information_gain": {"type": "array", "items": {"type": "string"}},
+    "materials": {"type": "array", "items": {"type": "object"}},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "internal_links": {"type": "array", "items": {"type": "object"}},
+    "competitor_urls": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "cluster_context": {"type": "object"},
+    "provenance": {"type": "array", "items": {"type": "object"}}
+  }
+}

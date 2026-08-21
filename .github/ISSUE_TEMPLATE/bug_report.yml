@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a reproducible Codex Blog defect.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: checkboxes
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, private source material, and unpublished content.
+          required: true
+        - label: I searched existing issues.
+          required: true
+  - type: input
+    attributes:
+      label: Codex Blog version
+      placeholder: 2.1.1
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Surface
+      options:
+        - Codex Skill
+        - CLI
+        - Installer
+        - Adapter
+        - Renderer
+        - Image provider
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Include sanitized inputs, commands, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Environment
+      description: Operating system, Python version, and Codex CLI version.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Sanitized manifest or error
+      render: text

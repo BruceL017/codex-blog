@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BruceL017/codex-blog/schemas/blog-write-request.schema.json",
+  "title": "BlogWriteRequest",
+  "type": "object",
+  "required": ["schema_version", "topic", "primary_keyword", "image_mode"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "topic": {"type": "string", "minLength": 1},
+    "primary_keyword": {"type": "string", "minLength": 1},
+    "secondary_keywords": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "search_intent": {"type": "string"},
+    "audience": {"type": "string"},
+    "language": {"type": "string"},
+    "template": {"type": "string"},
+    "word_count": {"type": "integer", "minimum": 350},
+    "outline": {"type": "array", "items": {"type": "string"}},
+    "content_gaps": {"type": "array", "items": {"type": "string"}},
+    "information_gain": {"type": "array", "items": {"type": "string"}},
+    "materials": {"type": "array", "items": {"$ref": "#/$defs/material"}},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "internal_links": {"type": "array", "items": {"type": "object"}},
+    "competitor_urls": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "cluster_context": {"type": "object"},
+    "site_context": {"type": "object"},
+    "brand_voice": {"type": "object"},
+    "image_mode": {"enum": ["deferred", "hero", "full"]},
+    "preserved_image_references": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "conflicts": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "material": {
+      "type": "object",
+      "required": ["title", "text", "fact_state", "source_refs", "public_boundary"],
+      "properties": {
+        "title": {"type": "string"},
+        "text": {"type": "string"},
+        "fact_state": {"enum": ["verified", "engineering", "hypothesis", "failed", "unknown"]},
+        "fact_states": {
+          "type": "array",
+          "items": {"enum": ["verified", "engineering", "hypothesis", "failed", "unknown"]},
+          "uniqueItems": true
+        },
+        "source_refs": {"type": "array", "items": {"type": "string"}},
+        "public_boundary": {"type": "string"},
+        "maturity": {"type": "string"},
+        "contribution_types": {"type": "array", "items": {"type": "string"}},
+        "search_intent": {"type": "string"},
+        "search_queries": {"type": "array", "items": {"type": "string"}},
+        "current_product_state": {"type": "string"},
+        "current_product_anchor": {"type": "string"}
+      }
+    }
+  }
+}

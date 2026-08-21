@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: codex-blog
+message: >-
+  If you use this software, please cite it using the metadata from this file
+  and retain the upstream attribution described in NOTICE.
+type: software
+authors:
+  - given-names: Bruce
+    family-names: L017
+    alias: BruceL017
+  - given-names: Daniel
+    family-names: Agrici
+    alias: AgriciDaniel
+repository-code: "https://github.com/BruceL017/codex-blog"
+url: "https://github.com/BruceL017/codex-blog"
+license: MIT
+version: 2.1.1
+date-released: "2026-08-21"
+keywords:
+  - codex
+  - blog
+  - seo
+  - geo
+  - content-pipeline
+  - content-optimization
+  - e-e-a-t
+  - skill
+  - plugin
+  - multilingual
+  - flow-framework
