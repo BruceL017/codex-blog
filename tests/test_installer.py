@@ -99,6 +99,7 @@ def _installer(env: dict[str, str], *args: str) -> subprocess.CompletedProcess[s
     return subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "install.py"), *args],
         env=env,
+        stdin=subprocess.DEVNULL,
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -538,6 +539,40 @@ def test_atomic_write_preserves_existing_file_if_replace_fails(
 
     assert target.read_bytes() == b"old-state\n"
     assert list(tmp_path.glob(".state.json.*.tmp")) == []
+
+
+def test_atomic_write_closes_temporary_file_before_replace(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    module_path = ROOT / "scripts" / "install.py"
+    spec = importlib.util.spec_from_file_location("_closed_fd_installer_module", module_path)
+    assert spec and spec.loader
+    installer = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(installer)
+
+    target = tmp_path / "state.json"
+    opened_fd: int | None = None
+    real_open = installer.os.open
+    real_fstat = installer.os.fstat
+    real_replace = installer.os.replace
+
+    def track_open(path: Path, flags: int, mode: int = 0o777) -> int:
+        nonlocal opened_fd
+        opened_fd = real_open(path, flags, mode)
+        return opened_fd
+
+    def replace_only_after_close(source: Path, destination: Path) -> None:
+        assert opened_fd is not None
+        with pytest.raises(OSError):
+            real_fstat(opened_fd)
+        real_replace(source, destination)
+
+    monkeypatch.setattr(installer.os, "open", track_open)
+    monkeypatch.setattr(installer.os, "replace", replace_only_after_close)
+
+    installer._atomic_write(target, b"new-state\n", mode=0o600)
+
+    assert target.read_bytes() == b"new-state\n"
 
 
 def test_state_write_failure_rolls_back_files_and_codex_resources(

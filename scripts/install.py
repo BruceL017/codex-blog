@@ -111,18 +111,20 @@ def _atomic_write(path: Path, data: bytes, *, mode: int) -> None:
     _ensure_directory(path.parent)
     temporary = path.parent / f".{path.name}.{secrets.token_hex(8)}.tmp"
     flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0)
-    fd = os.open(temporary, flags, mode)
+    fd: int | None = os.open(temporary, flags, mode)
     try:
         if hasattr(os, "fchmod"):
             os.fchmod(fd, mode)
-        with os.fdopen(fd, "wb", closefd=False) as handle:
+        with os.fdopen(fd, "wb") as handle:
+            fd = None
             handle.write(data)
             handle.flush()
             os.fsync(handle.fileno())
         _assert_no_symlinks(path)
         os.replace(temporary, path)
     finally:
-        os.close(fd)
+        if fd is not None:
+            os.close(fd)
         try:
             temporary.unlink()
         except FileNotFoundError:
