@@ -99,7 +99,7 @@ def _installer(env: dict[str, str], *args: str) -> subprocess.CompletedProcess[s
     return subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "install.py"), *args],
         env=env,
-        stdin=subprocess.DEVNULL,
+        input="",
         capture_output=True,
         text=True,
         encoding="utf-8",
